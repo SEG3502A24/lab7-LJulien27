@@ -31,6 +31,10 @@ export class BooksService {
     );
   }
 
+  public getAuthor(id: string): Observable<Author> {
+    return this.http.get<Author>(Url + 'authors/' + id);
+  }
+
   public updateBookAuthors(bookId: number, authorId: number): Observable<any> {
     return this.http.patch(Url + 'books/' + bookId + '/authors/' + authorId, {});
   }
